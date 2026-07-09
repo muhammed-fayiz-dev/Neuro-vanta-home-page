@@ -1,6 +1,6 @@
 import Banner from "@/components/sections/BannerSection/Banner";
 import Hero from "@/components/sections/HeroSection/Hero";
-
+import LongevityIndex from "@/components/sections/LongevitySection/index"
 export default function Page() {
   return (
     <>
@@ -45,6 +45,10 @@ export default function Page() {
           title: "Adaptive & Evolutive Systems",
         },
       ]}/>
+
+      <div>
+        <LongevityIndex/>
+      </div>
     </>
   )
 }

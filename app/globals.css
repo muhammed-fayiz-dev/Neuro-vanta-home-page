@@ -1,18 +1,65 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f4ef;
+  --background: #ffffff;
   --foreground: #1f1f1f;
+
+  --primary: #f9f5f0;
+  --secondary: #e2d3c3;
+  --dark: #c4aa8d;
+  --extra-dark: #9b7b57;
+
+  --border-default: #cbc3bb;
+  --border-muted: #e5ded6;
+  --border-strong: #8d847c;
+
+
+  --button-border-light: #A79D95;
+  --button-text-light: #6A625C;
+
+  --button-border-dark: rgba(255,255,255,.45);
+  --button-text-dark: #F8F4EE;
+
+  --button-circle: #E7DCCF;
+
+  --space-80: clamp(20px, 2.5vw, 80px);
+  /* Container */
+  --container-width: 1720px;
+
+  /* Horizontal padding */
+  --container-padding: clamp(20px, 5vw, 100px);
+
+  /* Vertical spacing */
+  --section-space: clamp(80px, 8vw, 120px);
 }
 
 @theme inline {
   /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: #ffffff;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-dark: var(--dark);
+
+  --color-border-default: var(--border-default);
+  --color-border-muted: var(--border-muted);
+  --color-border-strong: var(--border-strong);
+
+  --color-button-border-light: var(--button-border-light);
+  --color-button-border-dark: var(--button-border-dark);
+
+  --color-button-text-light: var(--button-text-light);
+  --color-button-text-dark: var(--button-text-dark);
+
+  --color-button-circle: var(--button-circle);
+  
+  --spacing-container: var(--container-padding);
+  --spacing-section: var(--section-space);
 
   /* Fonts */
   --font-sans: var(--font-dm-sans);
+
+  --spacing-80: var(--space-80);
 }
 
 body {

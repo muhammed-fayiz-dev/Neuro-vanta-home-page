@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { FC } from "react"
 import BannerFeature from "./BannerFeatures"
-import ArrowCircle from "@/components/icons/ArrowCircle"
+import Button from "@/components/ui/Button/Button"
 
 interface BannerProps {
   imageSrc: string
@@ -54,19 +54,19 @@ const Banner: FC<BannerProps> = ({
 
           {/* Right */}
           <div className="flex flex-col gap-3">
-            <button className="flex h-10 w-44 items-center rounded-full border border-white text-white transition hover:bg-white hover:text-black">
-              <ArrowCircle size={32} />
-              <span className="flex-1 text-center text-xs font-medium tracking-wider">
+            <Button  >
+             
                 EXPLORE
-              </span>
-            </button>
+        
+            </Button>
 
-            <button className="flex h-10 w-52 items-center rounded-full border border-white text-white transition hover:bg-white hover:text-black">
-              <ArrowCircle size={32} />
-              <span className="flex-1 text-center text-xs font-medium tracking-wider">
+           
+             <Button >
+             
                 VIEW PRODUCTS
-              </span>
-            </button>
+        
+            </Button >
+
           </div>
         </div>
 

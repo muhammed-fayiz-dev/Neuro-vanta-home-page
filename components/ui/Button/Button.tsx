@@ -25,7 +25,7 @@ export default function Button({
 
     ${
       theme === "light"
-        ? "border-secondary bg-none text-secondary hover:bg-primary hover:text-dark"
+        ? "border-secondary bg-none text-secondary hover:bg-primary hover:text-extra-darkad"
         : "border-extra-dark bg-dark text-white hover:bg-primary hover:text-extra-dark"
     }
 
@@ -42,7 +42,7 @@ export default function Button({
         className="-ml-2 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
       />
 
-      <span className="ml-2 text-button uppercase">
+      <span className="ml-2  text-button uppercase">
         {children}
       </span>
     </button>

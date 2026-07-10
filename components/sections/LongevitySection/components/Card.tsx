@@ -22,7 +22,7 @@ lg:w-85"
         />
       </div>
 
-      <h3 className="mt-5 text-[22px] font-light text-neutral-700">{title}</h3>
+      <h3 className="mt-3 md:mt-5 mb-5 text-button font-light text-neutral-700">{title}</h3>
     </article>
   )
 }

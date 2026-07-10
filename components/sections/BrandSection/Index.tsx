@@ -8,7 +8,7 @@ const BrandSection = () => {
       <div className="grid gap-16">
         {/* Title */}
         <div className="max-w-3xl">
-          <h2 className="text-section uppercase">
+          <h2 className="text-section uppercase text-extra-dark">
             Aligned with World-Class Brands
           </h2>
         </div>

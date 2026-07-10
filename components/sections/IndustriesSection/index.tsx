@@ -4,7 +4,7 @@ import IndustriesCard from "./components/IndustriesCard"
 import Image from "next/image"
 
 
-const IndustriesIndex=()=> {
+const IndustriesSection=()=> {
   return (
     <Section className="bg-primary">
       <div className="grid gap-16 lg:grid-cols-[320px_1fr] lg:items-end">
@@ -21,7 +21,7 @@ const IndustriesIndex=()=> {
 
         {/* Right */}
         <div>
-          <h2 className="mb-12 max-w-xl text-section uppercase text-extra-dark">
+          <h2 className="mb-12 max-w-4xl text-section uppercase text-extra-dark">
             Elevating Wellness Across Industries
           </h2>
 
@@ -35,4 +35,4 @@ const IndustriesIndex=()=> {
     </Section>
   );
 }
-export default IndustriesIndex
+export default IndustriesSection

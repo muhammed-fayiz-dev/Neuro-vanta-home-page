@@ -7,7 +7,7 @@
   --primary: #f9f5f0;
   --secondary: #e2d3c3;
   --dark: #c4aa8d;
-  --extra-dark: #95744f;
+  --extra-dark: #51463E;
 
   --border-default: #cbc3bb;
   --border-muted: #e5ded6;
@@ -24,7 +24,11 @@
   --text-display-lg: clamp(2rem, 1.5rem + 1.8vw, 3.5rem); /* 32px → 56px */
   --text-heading: clamp(1.5rem, 1.2rem + 1vw, 2.5rem); /* 24px → 40px */
 
-  --text-section: clamp(2rem, 1.35rem + 2vw, 3.75rem);
+  /* Hero title: 40px → 70px */
+  --text-hero: clamp(2rem, 1.93rem + 2.86vw, 4rem);
+
+  /* Section title: 32px → 60px */
+  --text-section: clamp(2rem, 1.46rem + 2.29vw, 3.3rem);
 
   --space-80: clamp(20px, 2.5vw, 80px);
   /* Container */
@@ -63,7 +67,9 @@
   --spacing-section: var(--section-space);
   --spacing-120: var(--space-120);
 
+  /* Texts */
   --text-display: var(--text-display-xl);
+  --text-hero: var(--text-hero);
   --text-section: var(--text-section);
   /* Fonts */
   --font-sans: var(--font-dm-sans);

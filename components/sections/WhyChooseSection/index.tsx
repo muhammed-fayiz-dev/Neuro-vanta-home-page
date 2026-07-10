@@ -2,7 +2,7 @@ import Section from "@/components/layout/SectionLayout";
 import { choiceData } from "./data/choiceData";
 import { ChoiceCard } from "./components/choiceCard";
 
-export default function WhyChooseIndex() {
+const WhyChooseSection=()=> {
   return (
     <Section className="bg-secondary">
         
@@ -23,3 +23,5 @@ export default function WhyChooseIndex() {
     </Section>
   );
 }
+
+export default WhyChooseSection

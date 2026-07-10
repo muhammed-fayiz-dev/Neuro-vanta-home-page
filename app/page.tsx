@@ -1,11 +1,12 @@
-import Banner from "@/components/sections/BannerSection/Banner"
-import Hero from "@/components/sections/HeroSection/Hero"
+import Banner from "@/components/sections/BannerSection/Index"
+import Hero from "@/components/sections/HeroSection/Index"
 import LongevityIndex from "@/components/sections/LongevitySection/index"
 import { bannerData } from "@/components/sections/BannerSection/data/bannerData"
 import AdvancedSection from "@/components/sections/AdvancedLongevitySection"
-import WhyChooseIndex from "@/components/sections/WhyChooseSection"
-import IndustriesIndex from "@/components/sections/IndustriesSection/Index" 
 import BrandSection from "@/components/sections/BrandSection/Index"
+import FormSection from "@/components/sections/FormSection/Index"
+import IndustriesSection from "@/components/sections/IndustriesSection/Index"
+import WhyChooseSection from "@/components/sections/WhyChooseSection/Index"
 
 
 export default function Page() {
@@ -31,9 +32,10 @@ export default function Page() {
       
 
       <AdvancedSection />
-      <WhyChooseIndex />
-      <IndustriesIndex />
+      <WhyChooseSection />
+      <IndustriesSection />
       <BrandSection/>
+      <FormSection/>
     </>
   )
 }

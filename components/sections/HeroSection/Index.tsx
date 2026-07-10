@@ -18,9 +18,9 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center text-center text-white">
-        <h1 className="text-5xl font-sans">ADVANCED LONGEVITY.</h1>
+        <h1 className="text-hero font-sans">ADVANCED LONGEVITY.</h1>
 
-        <h1 className="text-5xl font-sans">DESIGNED FOR LIFE PERFORMANCE.</h1>
+        <h1 className="text-hero font-sans">DESIGNED FOR LIFE PERFORMANCE.</h1>
       </div>
     </section>
   )

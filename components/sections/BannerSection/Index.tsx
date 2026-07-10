@@ -43,7 +43,7 @@ const Banner: FC<BannerProps> = ({
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
           {/* Left */}
           <div className="max-w-2xl">
-            <h1 className="text-LG font-light uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="text-section font-light uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
               {title}
             </h1>
 
@@ -54,19 +54,9 @@ const Banner: FC<BannerProps> = ({
 
           {/* Right */}
           <div className="flex flex-col gap-3">
-            <Button  >
-             
-                EXPLORE
-        
-            </Button>
+            <Button>EXPLORE</Button>
 
-           
-             <Button >
-             
-                VIEW PRODUCTS
-        
-            </Button >
-
+            <Button>VIEW PRODUCTS</Button>
           </div>
         </div>
 

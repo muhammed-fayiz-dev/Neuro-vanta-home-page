@@ -1,19 +1,19 @@
-import { ArrowUpRight } from "lucide-react";
-import { longevityCategory } from "../LongevityData/longevityCategory"; 
+import { ArrowUpRight } from "lucide-react"
+import { longevityCategory } from "../LongevityData/longevityCategory"
 
 const LongevitySectionHeader = () => {
   return (
-    <header className="flex flex-col justify-between gap-12 lg:flex-row lg:items-start">
+    <header className="flex flex-col mb-10 lg:16 justify-between gap-12 lg:flex-row lg:items-start">
       {/* Title */}
-      <div className="flex items-center lg:w-2/5">
-        <h2 className="text-4xl font-light uppercase tracking-tight text-neutral-700">
+      <div className="flex self-stretch flex-col justify-center lg:w-2/5">
+        <h2 className="text-section font-light uppercase tracking-tight text-neutral-700">
           LONGEVITY SYSTEMS
         </h2>
       </div>
 
       {/* Categories */}
       <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-2">
-        {longevityCategory.map((category:string) => (
+        {longevityCategory.map((category: string) => (
           <div
             key={category}
             className="group flex cursor-pointer items-center justify-between border-b border-neutral-200 py-3"
@@ -31,7 +31,7 @@ const LongevitySectionHeader = () => {
         ))}
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default LongevitySectionHeader;
+export default LongevitySectionHeader

@@ -28,6 +28,7 @@
   --text-hero: clamp(2rem, 1.93rem + 2.86vw, 4rem);
   /* Section title: 32px → 60px */
   --text-section: clamp(2rem, 1.46rem + 2.29vw, 3.3rem);
+  --text-head: clamp(1.5rem, 2.29vw, 3.3rem);
   --text-brand: clamp(4rem,17vw,18rem);
   --text-180: clamp(3.5rem, 10vw, 12rem);
   --text-32: clamp(2rem,4vw,4.5rem);
@@ -82,6 +83,8 @@
   --text-20: var(----text-20);
   --text-brand: var(--text-brand);
    --text-button: var( --text-button);
+   --text-head: var( --text-head);
+
   /* Fonts */
   --font-sans: var(--font-dm-sans);
 

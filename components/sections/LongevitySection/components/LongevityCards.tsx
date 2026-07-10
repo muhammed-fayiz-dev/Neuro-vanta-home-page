@@ -18,7 +18,7 @@ export default function LongevityCards({
 
   return (
     <div className="overflow-hidden">
-      <motion.div ref={trackRef} style={{ x }} className="flex w-max gap-6">
+      <motion.div ref={trackRef} style={{ x }} className="flex gap-8">
         {longevityCardData.map((card) => (
           <LongevityCard
             key={card.id}

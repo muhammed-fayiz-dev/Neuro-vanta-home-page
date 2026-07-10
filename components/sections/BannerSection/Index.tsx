@@ -2,7 +2,6 @@ import Image from "next/image"
 import { FC } from "react"
 import BannerFeature from "./components/BannerFeatures"
 import Button from "@/components/ui/Button/Button"
-import Navbar from "@/components/layout/Navbar"
 
 interface BannerProps {
   imageSrc: string
@@ -55,7 +54,7 @@ const Banner: FC<BannerProps> = ({
           </div>
 
           {/* Right */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col items-end gap-3">
             <Button  >EXPLORE</Button>
 
             <Button>VIEW PRODUCTS</Button>

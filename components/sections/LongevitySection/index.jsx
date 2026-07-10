@@ -3,20 +3,23 @@
 import { useRef } from "react"
 import LongevityCards from "./components/LongevityCards"
 import LongevitySectionHeader from "./components/LongevitySectionHeader"
+import Container from "@/components/layout/ContainerLayout"
 
 export default function LongevityIndex() {
   const sectionRef = useRef(null)
 
   return (
-    <section ref={sectionRef} className="relative h-[300vh]">
-      <div className=" sticky top-0 flex h-screen overflow-hidden bg-white">
-        <div className="mx-auto flex w-full max-w-[1720px] flex-col gap-5 justify-center px-5 sm:px-8 lg:px-16 xl:px-24">
-          <LongevitySectionHeader />
+    <section ref={sectionRef} className="relative pt-80 h-[300vh]">
+      <div className="sticky top-0 h-screen bg-white">
+        <Container>
+          <div className="flex h-full flex-col justify-center">
+            <LongevitySectionHeader />
 
-          <div>
-            <LongevityCards scrollTargetRef={sectionRef} />
+            <div>
+              <LongevityCards scrollTargetRef={sectionRef} />
+            </div>
           </div>
-        </div>
+        </Container>
       </div>
     </section>
   )

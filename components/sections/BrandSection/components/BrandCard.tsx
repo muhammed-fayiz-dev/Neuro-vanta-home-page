@@ -17,15 +17,7 @@ const BrandCard = ({ icon, index }: Props) => {
         hover:-translate-y-2
         hover:shadow-md
 
-        ${
-          index === 0
-            ? "lg:col-start-3"
-            : index === 3
-            ? "lg:col-start-1"
-            : index === 6
-            ? "lg:col-start-3"
-            : ""
-        }
+        
       `}
     >
       <Image

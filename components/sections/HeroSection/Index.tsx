@@ -3,7 +3,7 @@ import Button from "@/components/ui/Button/Button"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
+    <section className="sticky top-0 h-screen overflow-hidden">
       {/* Background */}
       <video
         className="absolute inset-0 h-full w-full object-cover"

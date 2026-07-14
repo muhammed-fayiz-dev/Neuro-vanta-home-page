@@ -11,5 +11,5 @@ export type advancedCardType ={
 export const card: advancedCardType[]= [
     {value:"10+",title:"Global Brands",icon:'/icon/glob.svg'},
     {value:"20+",title:"Group Experience",icon:'/icon/award.svg'},
-    {value:"14+",title:"Global Brands",icon:'/icon/glob.svg'},
+    {value:"14+",title:"Continents of Supply Excellence",icon:'/icon/year-of-experience.svg'},
   ]

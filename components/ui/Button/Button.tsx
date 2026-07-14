@@ -1,10 +1,15 @@
-import Image from "next/image"
-import { ButtonHTMLAttributes, ReactNode } from "react"
+"use client";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-  size?: "sm" | "md"
-  theme?: "light" | "dark"
+import { HTMLMotionProps, motion } from "framer-motion";
+import Image from "next/image";
+import { useState } from "react";
+
+const MotionImage = motion.create(Image);
+
+interface ButtonProps extends HTMLMotionProps<"button"> {
+  children: React.ReactNode;
+  size?: "sm" | "md";
+  theme?: "light" | "dark";
 }
 
 export default function Button({
@@ -14,37 +19,90 @@ export default function Button({
   className = "",
   ...props
 }: ButtonProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <button
-      {...props}
+    <motion.button
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
       className={`
-    group inline-flex w-fit items-center
-    rounded-full border
-    transition-all duration-300
-    whitespace-nowrap
+        relative
+        w-fit      
+        overflow-hidden
+        flex
+        items-center
+        rounded-full
+        border
 
-    ${
-      theme === "light"
-        ? "border-secondary bg-none text-secondary hover:bg-primary hover:text-extra-darkad"
-        : "border-extra-dark bg-dark text-white hover:bg-primary hover:text-extra-dark"
-    }
+        ${
+          theme === "light"
+            ? "border-secondary text-secondary hover:bg-primary hover:text-extra-dark"
+            : "border-extra-dark bg-dark text-white hover:bg-primary hover:text-extra-dark"
+        }
 
-    ${size === "sm" ? "h-8 px-2 pr-4" : "h-10 px-2.5 pr-5"}
+        ${
+          size === "sm"
+            ? "h-12 px-4"
+            : "h-14 px-5"
+        }
 
-    ${className}
-  `}
+        ${className}
+      `}
+      {...props}
     >
-      <Image
-        src="/icon/circle-arrow-right.svg"
-        alt=""
-        width={27}
-        height={27}
-        className="-ml-2 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
-      />
+      {/* Left Icon: hidden at idle, slides in from the left on hover */}
+      <motion.div
+        className="absolute left-2"
+        animate={{
+          x: hovered ? 0 : -40,
+          opacity: hovered ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.35,
+          ease: "easeInOut",
+        }}
+      >
+        <MotionImage
+          src="/icon/circle-arrow-right.svg"
+          alt=""
+          width={40}
+          height={40}
+        />
+      </motion.div>
 
-      <span className="ml-2  text-button uppercase">
+      {/* Text */}
+      <motion.span
+        animate={{
+          x: hovered ? 18 : 0,
+        }}
+        transition={{
+          duration: 0.35,
+          ease: "easeInOut",
+        }}
+        className="mx-12 uppercase whitespace-nowrap text-button"
+      >
         {children}
-      </span>
-    </button>
-  )
+      </motion.span>
+
+      {/* Right Icon: visible at idle, exits to the right and fades on hover */}
+      <motion.div
+        className="absolute right-2"
+        animate={{
+          x: hovered ? 40 : 0,
+          opacity: hovered ? 0 : 1,
+        }}
+        transition={{
+          duration: 0.35,
+          ease: "easeInOut",
+        }}
+      >
+        <MotionImage
+          src="/icon/circle-arrow-right.svg"
+          alt=""
+          width={40}
+          height={40}
+        />
+      </motion.div>
+    </motion.button>
+  );
 }

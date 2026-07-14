@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 :root {
+  /* ==========================================================================
+     Colors
+  ========================================================================== */
+
   --background: #ffffff;
   --foreground: #1f1f1f;
 
@@ -9,10 +13,12 @@
   --dark: #c4aa8d;
   --extra-dark: #51463e;
 
+  /* Borders */
   --border-default: #cbc3bb;
   --border-muted: #e5ded6;
   --border-strong: #8d847c;
 
+  /* Buttons */
   --button-border-light: #a79d95;
   --button-text-light: #6a625c;
 
@@ -20,38 +26,53 @@
   --button-text-dark: #f8f4ee;
 
   --button-circle: #e7dccf;
-  --text-display-xl: clamp(2.5rem, 1.8rem + 2.5vw, 4.5rem); /* 40px → 72px */
-  --text-display-lg: clamp(2rem, 1.5rem + 1.8vw, 3.5rem); /* 32px → 56px */
-  --text-heading: clamp(1.5rem, 1.2rem + 1vw, 2.5rem); /* 24px → 40px */
 
-  /* Hero title: 40px → 70px */
-  --text-hero: clamp(2rem, 1.93rem + 2.86vw, 4rem);
-  /* Section title: 32px → 60px */
-  --text-section: clamp(2rem, 1.46rem + 2.29vw, 3.3rem);
+  /* ==========================================================================
+     Typography
+  ========================================================================== */
+
+  --text-display-xl: clamp(2.5rem, 1.8rem + 2.5vw, 4.5rem); /* 40 → 72 */
+  --text-display-lg: clamp(2rem, 1.5rem + 1.8vw, 3.5rem); /* 32 → 56 */
+
+  --text-hero: clamp(2rem, 1.93rem + 2.86vw, 4rem); /* 32 → 64 */
+  --text-section: clamp(1.625rem, 2.7vw, 3.75rem); /* 32 → 53 */
+  --text-heading: clamp(1.5rem, 1.2rem + 1vw, 2.5rem); /* 24 → 40 */
+
   --text-head: clamp(1.5rem, 2.29vw, 3.3rem);
-  --text-brand: clamp(4rem,17vw,18rem);
+  --text-brand: clamp(4rem, 17vw, 18rem);
   --text-180: clamp(3.5rem, 10vw, 12rem);
-  --text-32: clamp(2rem,4vw,4.5rem);
-  --text-20: clamp(1rem,2.5vw,1.25rem);
-  --text-button: clam(8px,12px,18px);
+
+  --text-32: clamp(2rem, 4vw, 4.5rem);
+  --text-30: clamp(20px, 1.7vw, 30px);
+  --text-20: clamp(16px, 0.8163vw + 8.5714px, 20px);
+  --text-19: clamp(16px, 1vw + 12px, 19px);
+
+  --text-button: clamp(10px, 13px, 15px);
+
+  /* ==========================================================================
+     Spacing
+  ========================================================================== */
 
   --space-80: clamp(20px, 2.5vw, 80px);
   --space-100: clamp(40px, 3.5vw, 100px);
-  /* Container */
-  --container-width: 1720px;
-
-  /* Horizontal padding */
-  --container-padding: clamp(20px, 5vw, 100px);
-
-  /* Vertical spacing */
-  --section-space: clamp(80px, 8vw, 120px);
   --space-120: clamp(50px, 4.93vw + 30.7px, 120px);
+
+  --section-space: clamp(80px, 8vw, 120px);
+
+  /* ==========================================================================
+     Layout
+  ========================================================================== */
+
+  --container-width: 1720px;
+  --container-padding: clamp(20px, 5vw, 100px);
+  --card-image-width: clamp(280px, 32vw, 500px);
 }
 
 @theme inline {
   /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-dark: var(--dark);
@@ -69,26 +90,33 @@
 
   --color-button-circle: var(--button-circle);
 
-  --spacing-container: var(--container-padding);
-  --spacing-section: var(--section-space);
-  --spacing-120: var(--space-120);
-  --spacing-100: var(--space-100);
-  --spacing-80: var(--space-80);
-  /* Texts */
+  /* Typography */
   --text-display: var(--text-display-xl);
   --text-hero: var(--text-hero);
   --text-section: var(--text-section);
-  --text-180: var(--text-180);
-  --text-32: var(----text-32);
-  --text-20: var(----text-20);
+  --text-heading: var(--text-heading);
+  --text-head: var(--text-head);
+
   --text-brand: var(--text-brand);
-   --text-button: var( --text-button);
-   --text-head: var( --text-head);
+  --text-180: var(--text-180);
+  --text-32: var(--text-32);
+  --text-30: var(--text-30);
+  --text-20: var(--text-20);
+  --text-19: var(--text-19);
+  --text-button: var(--text-button);
 
-  /* Fonts */
+  /* Spacing */
+  --spacing-container: var(--container-padding);
+  --spacing-section: var(--section-space);
+
+  --spacing-120: var(--space-120);
+  --spacing-100: var(--space-100);
+  --spacing-80: var(--space-80);
+
+  --width-card-image: var(--card-image-width);
+
+  /* Font */
   --font-sans: var(--font-dm-sans);
-
-
 }
 
 body {
@@ -98,5 +126,11 @@ body {
 }
 
 @utility bg-neuro-gradient {
-  background-image: linear-gradient(to right, #7F6157, #C9B6AC, #BFA373, #7F6157);
+  background-image: linear-gradient(
+    to right,
+    #7f6157,
+    #c9b6ac,
+    #bfa373,
+    #7f6157
+  );
 }

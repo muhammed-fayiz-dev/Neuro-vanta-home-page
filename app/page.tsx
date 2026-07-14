@@ -5,29 +5,31 @@ import { bannerData } from "@/components/sections/BannerSection/data/bannerData"
 import AdvancedSection from "@/components/sections/AdvancedLongevitySection"
 import BrandSection from "@/components/sections/BrandSection/Index"
 import FormSection from "@/components/sections/FormSection/Index"
-import IndustriesSection from "@/components/sections/IndustriesSection" 
+import IndustriesSection from "@/components/sections/IndustriesSection"
 import WhyChooseSection from "@/components/sections/WhyChooseSection/Index"
 import FooterSection from "@/components/sections/FooterSection/Index"
 
 export default function Page() {
   return (
     <>
-    
+    <div className="relative">
+
       <Hero />
       <Banner
-        imageSrc="/Banner-bg-1.jpg"
-        imageAlt="eye closeup photo"
+      
         title="BESPOKE WELLNESS & LONGEVITY SOLUTIONS"
         description="Personalized, science-led systems tailored to individual physiology, lifestyle, and performance goals."
-        features={bannerData}
+        features={bannerData.section1}
       />
       <Banner
-        imageSrc="/Banner-bg-2.png"
-        imageAlt="Person in a tube"
+       
+      
         title="WELLNESS SPACE DESIGN"
         description="End-to-end design and integration of intelligent wellness environments—where architecture, technology, and human biology work in harmony."
-        features={bannerData}
+        features={bannerData.section2}
       />
+    </div>
+     
 
       <LongevityIndex />
 
@@ -36,7 +38,7 @@ export default function Page() {
       <IndustriesSection />
       <BrandSection />
       <FormSection />
-      <FooterSection/>
+      <FooterSection />
     </>
   )
 }

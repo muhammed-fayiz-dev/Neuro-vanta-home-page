@@ -4,7 +4,15 @@ import Section from "@/components/layout/SectionLayout"
 import { choiceData } from "./data/choiceData"
 import { ChoiceCard } from "./components/choiceCard"
 import { motion, Variants } from "framer-motion"
-import RevealText from "@/components/animations/RevealText"
+import RevealItem from "@/components/animations/RevealItem"
+
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Autoplay } from "swiper/modules"
+
+import "swiper/css"
+import "swiper/css/navigation"
+import "swiper/css/pagination"
+import { useEffect, useState } from "react"
 
 export const containerVariants: Variants = {
   hidden: {},
@@ -15,11 +23,26 @@ export const containerVariants: Variants = {
   },
 }
 const WhyChooseSection = () => {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    if (isHovered) return
+
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % choiceData.length)
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [isHovered])
   return (
     <Section className="bg-secondary h-sreen pb-0">
-      <RevealText trigger="viewport" className="mb-12 text-section font-light uppercase text-extra-dark">
+      <RevealItem
+        trigger="viewport"
+        className="mb-12 text-section font-light uppercase text-extra-dark"
+      >
         WHY NEURO VANTA
-      </RevealText>
+      </RevealItem>
 
       <motion.div
         variants={containerVariants}
@@ -29,19 +52,46 @@ const WhyChooseSection = () => {
           once: true,
           amount: 0.3,
         }}
-        className="grid grid-cols-1 border-t border-white md:grid-cols-2 lg:grid-cols-4"
+        className="border-t border-white"
       >
-        {choiceData.map((choice) => (
-          <RevealText trigger="viewport" key={choice.title}>
-
-            <ChoiceCard
-              key={choice.title}
-              icon={choice.icon}
-              title={choice.title}
-              description={choice.description}
-            />
-          </RevealText>
-        ))}
+        <Swiper
+          onSlideChange={(swiper) => {
+            setActiveIndex(swiper.realIndex)
+          }}
+          autoplay={{
+            delay: 3000,
+          }}
+          modules={[Autoplay]}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
+        >
+          {choiceData.map((choice, index) => (
+            <SwiperSlide key={choice.title} className="h-auto">
+              <RevealItem trigger="viewport">
+                <ChoiceCard
+                  icon={choice.icon}
+                  title={choice.title}
+                  description={choice.description}
+                  active={index === activeIndex}
+                  onHoverStart={() => {
+                    setIsHovered(true)
+                    setActiveIndex(index)
+                  }}
+                  onHoverEnd={()=> setIsHovered(false)}
+                />
+              </RevealItem>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </motion.div>
     </Section>
   )

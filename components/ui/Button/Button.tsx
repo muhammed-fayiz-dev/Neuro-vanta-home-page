@@ -9,24 +9,6 @@ interface ButtonProps extends HTMLMotionProps<"button"> {
   theme?: "light" | "dark"
 }
 
-const BUTTON = {
-  mobile: {
-    height: 40,
-    icon: 40,
-    padding: 16,
-  },
-  tablet: {
-    height: 44,
-    icon: 44,
-    padding: 18,
-  },
-  desktop: {
-    height: 48,
-    icon: 48,
-    padding: 20,
-  },
-}
-
 export default function Button({
   children,
   theme = "light",
@@ -35,17 +17,17 @@ export default function Button({
 }: ButtonProps) {
   const [active, setActive] = useState(false)
   const [buttonWidth, setButtonWidth] = useState(0)
-const [iconWidth, setIconWidth] = useState(0)
+  const [iconWidth, setIconWidth] = useState(0)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const iconRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-   setButtonWidth(buttonRef.current?.offsetWidth as number)
+    setButtonWidth(buttonRef.current?.offsetWidth as number)
   }, [])
 
   useEffect(() => {
     setIconWidth(iconRef.current?.offsetWidth as number)
-}, [])
-const travelDistance = buttonWidth - iconWidth
+  }, [])
+  const travelDistance = buttonWidth - iconWidth
   return (
     <motion.button
       onHoverStart={() => setActive(true)}
@@ -103,7 +85,7 @@ const travelDistance = buttonWidth - iconWidth
         }}
       >
         <motion.div
-           ref={iconRef}
+          ref={iconRef}
           className={`
             flex
             h-10 w-10
@@ -114,14 +96,14 @@ const travelDistance = buttonWidth - iconWidth
             justify-center
             rounded-full
            
-            ${active ? "bg-extra-dark":"bg-secondary" }
+            ${active ? "bg-extra-dark" : "bg-secondary"}
           `}
           animate={{
             rotate: active ? 0 : 0,
           }}
         >
           <ChevronRight
-            className={`h-4 w-4 md:h-7 md:w-7  ${active ? " text-secondary":"text-extra-dark" }`}
+            className={`h-4 w-4 md:h-7 md:w-7  ${active ? " text-secondary" : "text-extra-dark"}`}
             strokeWidth={2}
             // color="#3F3A35"
           />

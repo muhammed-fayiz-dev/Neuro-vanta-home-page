@@ -3,7 +3,7 @@ import { AdvancedLongevityCard } from "./components/AdvancedLongevityCard"
 import { title, description } from "./data/advancedLongevityData"
 
 import Button from "@/components/ui/Button/Button"
-import RevealText from "@/components/animations/RevealText"
+import RevealItem from "@/components/animations/RevealItem"
 
 export default function AdvancedSection() {
   return (
@@ -11,13 +11,19 @@ export default function AdvancedSection() {
       <div className="max-auto max-w-7xl ">
         {/* Top */}
         <div className="">
-          <RevealText trigger="viewport" className="text-xl font-light uppercase leading-tight text-neutral-700 lg:text-5xl">
+          <RevealItem
+            trigger="viewport"
+            className="text-xl font-light uppercase leading-tight text-neutral-700 lg:text-5xl"
+          >
             {title}
-          </RevealText>
+          </RevealItem>
 
-          <RevealText trigger="viewport" className="mt-8 max-w-xl text-19 leading-7 text-neutral-500">
+          <RevealItem
+            trigger="viewport"
+            className="mt-8 max-w-xl text-19 leading-7 text-neutral-500"
+          >
             {description}
-          </RevealText>
+          </RevealItem>
         </div>
 
         {/* Bottom */}

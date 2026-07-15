@@ -1,35 +1,35 @@
-"use client";
+"use client"
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
-interface RevealTextProps {
-  children: React.ReactNode;
-  className?: string;
-  duration?: number;
-  delay?: number;
-  trigger?: "load" | "viewport" | "scroll";
-  start?: string;
+interface RevealItemProps {
+  children: React.ReactNode
+  className?: string
+  duration?: number
+  delay?: number
+  trigger?: "load" | "viewport" | "scroll"
+  start?: string
 }
 
-export default function RevealText  ({
+export default function RevealItem({
   children,
   className = "",
   duration = 1.2,
   delay = 0,
   trigger = "viewport",
   start = "top 85%",
-}: RevealTextProps) {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLSpanElement>(null);
+}: RevealItemProps) {
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const textRef = useRef<HTMLSpanElement>(null)
 
   useGSAP(
     () => {
-      if (!textRef.current) return;
+      if (!textRef.current) return
 
       switch (trigger) {
         case "load":
@@ -44,8 +44,8 @@ export default function RevealText  ({
               delay,
               ease: "power4.out",
             }
-          );
-          break;
+          )
+          break
 
         case "viewport":
           gsap.fromTo(
@@ -64,8 +64,8 @@ export default function RevealText  ({
                 once: true,
               },
             }
-          );
-          break;
+          )
+          break
 
         case "scroll":
           gsap.fromTo(
@@ -83,12 +83,12 @@ export default function RevealText  ({
                 scrub: true,
               },
             }
-          );
-          break;
+          )
+          break
       }
     },
     { scope: wrapperRef }
-  );
+  )
 
   return (
     <div ref={wrapperRef} className="overflow-hidden">
@@ -99,5 +99,5 @@ export default function RevealText  ({
         {children}
       </span>
     </div>
-  );
+  )
 }

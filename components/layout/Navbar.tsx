@@ -16,25 +16,11 @@ const Navbar = () => {
         </button>
 
         {/* Center */}
-        <h1
-          className="
-        text-head
-        text-center
-        font-light
-        lowercase
-        leading-none
-        tracking-tight
-        bg-neuro-gradient
-        bg-clip-text
-        text-transparent
-      "
-        >
-          neuro vanta
-        </h1>
+        <Image src={"/icon/logo.svg"} width={320} height={40} alt="logo" className="w-39.5 h-5 md:w-xs md:h-10"/>
 
         {/* Right */}
         <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">
-          <button className="text-lg rounded-3xl bg-primary px-2 font-sm uppercase text-extra-dark sm:text-sm lg:text-base">
+          <button className="text-[15px] rounded-full bg-primary px-2 font-sm uppercase text-extra-dark sm:text-sm lg:text-base">
             Contact
           </button>
 

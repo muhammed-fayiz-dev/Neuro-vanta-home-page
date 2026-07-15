@@ -1,50 +1,39 @@
-import React from "react"
 import { contactData, socialMedia } from "../data/contactData"
 import Image from "next/image"
 import Section from "@/components/layout/SectionLayout"
+import RevealItem from "@/components/animations/RevealItem"
 
 const FooterBrand = () => {
   return (
     <Section className="pt-0">
 
-      <h1
-        className="
-        w-full
-        text-center
-        text-brand
-        leading-none
-        font-light
-        lowercase
-        tracking-tight
-        bg-neuro-gradient
-        bg-clip-text
-        text-transparent
-        "
+      <RevealItem
+       
       >
-        neuro vanta
-      </h1>
+        <Image src={"/icon/logo.svg"} alt="logo" width={358} height={218} className="lg:w-[1720px] lg:h-54.5"/>
+      </RevealItem>
 
       {/* Bottom */}
-      <div className="mt-10 lg:mt-20 grid gap:12 md:gap-16 lg:grid-cols-[1fr_1.4fr]">
+      <div className="mt-10 px-30px lg:mt-20 grid gap:12 md:gap-16 lg:grid-cols-[1fr_1.4fr]">
         {/* Address */}
-        <div className="space-y-1 text-sm text-neutral-600">
+        <div className="space-y-1 text-19 text-extra-dark">
           {contactData.address.map((line, index) => (
             <p key={index}>{line}</p>
           ))}
         </div>
 
         {/* Contact */}
-        <div className="flex flex-col  items-center ">
+        <div className="flex flex-col  items-baseline ">
           <a
             href={`mailto:${contactData.email}`}
-            className="text-3xl lg:text-5xl font-light text-extra-dark"
+            className="text-60  font-light text-extra-dark"
           >
             {contactData.email}
           </a>
 
           <a
             href={`tel:${contactData.phone}`}
-            className="mt-4 text-3xl lg:text-5xl font-light text-extra-dark"
+            className="mt-4 text-60  font-light text-extra-dark"
           >
             {contactData.phone}
           </a>

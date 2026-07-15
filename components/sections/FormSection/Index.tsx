@@ -1,5 +1,6 @@
 import Section from "@/components/layout/SectionLayout"
 import ContactForm from "./components/ContactForm"
+import RevealItem from "@/components/animations/RevealItem"
 
 const FormSection = () => {
   return (
@@ -7,13 +8,13 @@ const FormSection = () => {
       <div className="gap-20 ">
         {/* Left */}
         <div>
-          <p className="uppercase text-section text-extra-dark">
+          <RevealItem className="uppercase text-section text-extra-dark">
             Where Intelligence Meets Longevity
-          </p>
+          </RevealItem>
 
-          <h2 className="mt-4 text-[clamp(3rem,5vw,7rem)] uppercase font-semibold leading-none text-extra-dark">
+          <RevealItem className="mt-4 text-[clamp(3rem,5vw,7rem)] uppercase font-semibold leading-none text-extra-dark">
             Begin Here.
-          </h2>
+          </RevealItem>
         </div>
 
         {/* Right */}

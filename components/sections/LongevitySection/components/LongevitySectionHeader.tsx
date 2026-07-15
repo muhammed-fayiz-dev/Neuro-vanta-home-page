@@ -1,21 +1,22 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react"
 import longevityCardData, {
   LongevityCardDataType,
-} from "../data/longevityCardData";
+} from "../data/longevityCardData"
+
 
 interface LongevityHeaderProps {
-  selectedIndex: number;
-  selectCategory: (ind: number) => void;
+  selectedIndex: number
+  setSelectedIndex: React.Dispatch<React.SetStateAction<number>>
 }
 
 const LongevitySectionHeader: React.FC<LongevityHeaderProps> = ({
   selectedIndex,
-  selectCategory,
+  setSelectedIndex,
 }) => {
   return (
     <header className="flex flex-col justify-between gap-7 md:gap-12 lg:flex-row lg:items-start">
       {/* Title */}
-      <div className="flex self-stretch flex-col justify-center lg:w-2/5">
+      <div className="flex self-stretch  lg:w-2/5">
         <h2 className="text-section font-light uppercase tracking-tight text-neutral-700">
           LONGEVITY SYSTEMS
         </h2>
@@ -26,7 +27,7 @@ const LongevitySectionHeader: React.FC<LongevityHeaderProps> = ({
         {longevityCardData.map((category: LongevityCardDataType, ind) => (
           <div
             key={category.id}
-            onClick={() => selectCategory(ind)}
+            onClick={() => setSelectedIndex(ind)}
             className="group flex cursor-pointer items-center justify-between border-b border-neutral-200 py-3"
           >
             <p
@@ -53,21 +54,55 @@ const LongevitySectionHeader: React.FC<LongevityHeaderProps> = ({
       </div>
 
       {/* Mobile Select */}
-      <div className="md:hidden">
-        <select
-          className="w-full border-b border-neutral-200 bg-transparent py-4 text-18 outline-none"
-          value={selectedIndex}
-          onChange={(e) => selectCategory(Number(e.target.value))}
+      <div>
+        {/* <Select
+          value={selectedIndex.toString()}
+          onValueChange={(value) => setSelectedIndex(Number(value))}
         >
-          {longevityCardData.map((item, index) => (
-            <option key={item.id} value={index}>
-              {item.title}
-            </option>
-          ))}
-        </select>
+          <SelectTrigger
+            className="
+    h-auto
+    w-full
+    rounded-none
+    border-0
+    border-b
+    border-neutral-200
+    bg-transparent
+    px-0
+    py-4
+
+    text-19
+    font-medium
+    text-neutral-700
+
+    shadow-none
+
+    focus:ring-0
+    focus:ring-offset-0
+"
+          >
+            <SelectValue />
+          </SelectTrigger>
+
+          <SelectContent
+            className="
+    rounded-lg
+    border
+    border-neutral-200
+    bg-white
+    shadow-xl
+"
+          >
+            {longevityCardData.map((item, index) => (
+              <SelectItem key={item.id} value={index.toString()}>
+                {item.title}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select> */}
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default LongevitySectionHeader;
+export default LongevitySectionHeader

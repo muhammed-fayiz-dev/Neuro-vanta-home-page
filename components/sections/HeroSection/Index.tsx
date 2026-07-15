@@ -1,3 +1,4 @@
+import RevealItem from "@/components/animations/RevealItem"
 import Navbar from "@/components/layout/Navbar"
 import Button from "@/components/ui/Button/Button"
 
@@ -20,21 +21,24 @@ export default function Hero() {
       <Navbar />
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center text-white">
-        <div className="max-w-6xl">
-          <h1 className="text-hero uppercase leading-[0.95]">
-            Advanced Longevity.
-          </h1>
-
-          <h1 className="mt-2 text-hero uppercase leading-[0.95]">
-            Designed for Life Performance.
-          </h1>
-        </div>
-
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6">
-          <Button>For Commercial</Button>
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-end px-5 md:px-8 lg:px-10 pb-20 md:pb-25 text-center text-white">
+        <RevealItem
+          trigger="load"
+          className="
+    text-hero
+    uppercase
+    leading-[1.112]
+    tracking-[-0.03em]
+    max-w-[28ch] lg:max-w-[30ch]
+    mx-auto
+   
+  "
+        >
+          Advanced Longevity.<br/> Designed for Life Performance.
+        </RevealItem>
+        <RevealItem className="mt-[clamp(2rem,4vw,4rem)]">
           <Button>For Individual</Button>
-        </div>
+        </RevealItem>
       </div>
     </section>
   )

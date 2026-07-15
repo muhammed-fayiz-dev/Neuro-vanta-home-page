@@ -19,7 +19,7 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
         <div className="flex flex-col gap-3 max-w-2xl">
           <RevealItemProps
             trigger="viewport"
-            className="text-section font-light uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
+            className="text-section  font-light uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
           >
             {title}
           </RevealItemProps>

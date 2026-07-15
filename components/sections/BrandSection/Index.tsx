@@ -5,6 +5,7 @@ import Section from "@/components/layout/SectionLayout";
 import { brandIcons } from "./data/brandData";
 import BrandCard from "./components/BrandCard";
 import { motion, useScroll, useTransform } from "framer-motion";
+import RevealItem from "@/components/animations/RevealItem";
 
 const BrandSection = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,9 +21,9 @@ const BrandSection = () => {
     <Section className="bg-white">
       <div ref={ref} className="grid gap-16">
         <div className="max-w-3xl">
-          <h2 className="text-section uppercase text-extra-dark">
+          <RevealItem className="text-section uppercase text-extra-dark">
             Aligned with World-Class Brands
-          </h2>
+          </RevealItem>
         </div>
 
         <motion.div

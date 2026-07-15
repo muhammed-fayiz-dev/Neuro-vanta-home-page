@@ -4,7 +4,7 @@ import ScrollProvider from "@/components/provider/ScrollProvider";
 import "./globals.css";
 
 const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+  variable: "--font-dmSans",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "swap",

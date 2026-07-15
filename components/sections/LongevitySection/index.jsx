@@ -10,28 +10,22 @@ import longevityCardData from "./data/longevityCardData"
 export default function LongevityIndex() {
   const [selectedIndex, setSelectedIndex] = useState(0)
 
-  const selectCategory = (ind) => {
-    setSelectedIndex(ind)
-  }
-
   return (
     <Section>
       <div className="bg-white">
         <div className="flex flex-col justify-center">
           <LongevitySectionHeader
             selectedIndex={selectedIndex}
-            selectCategory={selectCategory}
+            setSelectedIndex={setSelectedIndex}
           />
 
-         
-            <div className="hidden md:block ">
-              <LongevityCards indexId={selectedIndex} />
-            </div>
+          <div className="hidden md:block mt-15">
+            <LongevityCards indexId={selectedIndex} />
+          </div>
 
-            <MobileLongevityCarousel
-              images={longevityCardData[selectedIndex].imageSrc}
-            />
-          
+          <MobileLongevityCarousel
+            images={longevityCardData[selectedIndex].imageSrc}
+          />
         </div>
       </div>
     </Section>

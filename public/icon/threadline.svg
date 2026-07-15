@@ -1,0 +1,19 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 300 900"
+    fill="none"
+>
+    <path
+        d="
+            M150 40
+            C80 120, 80 180, 150 240
+            S220 360, 150 430
+            S80 560, 150 640
+            S220 770, 150 850
+        "
+        stroke="#B7C8C2"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+</svg>

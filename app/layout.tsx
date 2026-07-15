@@ -2,6 +2,7 @@
 import { DM_Sans  } from "next/font/google";
 import ScrollProvider from "@/components/provider/ScrollProvider"; 
 import "./globals.css";
+import Loader from "@/components/loader";
 
 const dmSans = DM_Sans({
   variable: "--font-dmSans",
@@ -23,6 +24,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
        <ScrollProvider>
+         <Loader />
           {children}
         </ScrollProvider>
         </body>

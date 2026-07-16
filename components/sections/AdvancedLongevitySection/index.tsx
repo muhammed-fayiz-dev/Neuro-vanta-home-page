@@ -8,19 +8,19 @@ import RevealItem from "@/components/animations/RevealItem"
 export default function AdvancedSection() {
   return (
     <Section className="bg-primary">
-      <div className="max-auto max-w-7xl ">
+      <div className=" ">
         {/* Top */}
-        <div className="">
+        <div className="max-w-8xl">
           <RevealItem
             trigger="viewport"
-            className="text-xl font-light uppercase leading-tight text-neutral-700 lg:text-5xl"
+            className="section-heading"
           >
             {title}
           </RevealItem>
 
           <RevealItem
             trigger="viewport"
-            className="mt-8 max-w-xl text-19 leading-7 text-neutral-500"
+            className="mt-8 max-w-2xl description-text"
           >
             {description}
           </RevealItem>
@@ -30,7 +30,7 @@ export default function AdvancedSection() {
         <div className="mt-15 flex flex-col gap-16 lg:flex-row lg:justify-between">
           {/* Button */}
           <div className="flex items-end">
-            <Button>About Neuro Vanta</Button>
+            <Button theme="dark">About Neuro Vanta</Button>
           </div>
 
           {/* Cards */}

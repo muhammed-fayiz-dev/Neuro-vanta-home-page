@@ -1,112 +1,94 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import useEmblaCarousel from "embla-carousel-react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useState } from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper as SwiperType } from "swiper/types"
+import { ArrowLeft, ArrowRight } from "lucide-react"
 
-import { ImageData } from "../data/longevityCardData";
-import LongevityCard from "./Card";
+import "swiper/css"
+
+import LongevityCard from "./Card"
+import { ImageData } from "../data/longevityCardData"
 
 interface Props {
-  images: ImageData[];
+  images: ImageData[]
 }
 
-export default function MobileLongevityCarousel({ images }: Props) {
-  const [selectedSlide, setSelectedSlide] = useState(0);
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: true,
-    align: "center",
-    skipSnaps: false,
-  });
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    const onSelect = () => {
-      setSelectedSlide(emblaApi.selectedScrollSnap());
-    };
-
-    onSelect();
-
-    emblaApi.on("select", onSelect);
-
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
-  const scrollPrev = () => emblaApi?.scrollPrev();
-
-  const scrollNext = () => emblaApi?.scrollNext();
+export default function MobileLongevitySwiper({ images }: Props) {
+  const [swiper, setSwiper] = useState<SwiperType | null>(null)
 
   return (
-    <div className="md:hidden">
-      {/* Embla Viewport */}
-      <div
-        ref={emblaRef}
-        className="overflow-hidden"
+    <div className="md:hidden mt-7">
+      <Swiper
+        key={images.map((item) => item.image).join("-")}
+        onSwiper={setSwiper}
+        slidesPerView={1.15}
+        // loop={images.length > 1}
       >
-        {/* Embla Container */}
-        <div className="flex items-center">
-          {images.map((item, index) => (
-            <motion.div
-              key={index}
-              className="flex-[0_0_72%] px-3"
-              animate={{
-                scale: selectedSlide === index ? 1 : 0.82,
-                opacity: selectedSlide === index ? 1 : 0.4,
-                filter:
-                  selectedSlide === index
-                    ? "blur(0px)"
-                    : "blur(1px)",
-              }}
-              transition={{
-                duration: 0.45,
-                ease: "easeOut",
-              }}
-            >
-              <LongevityCard
-                imageSrc={item.image}
-                title={item.footNote}
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+        {images.map((item) => (
+          <SwiperSlide key={item.image}>
+            {({ isActive }) => (
+              <div
+                className={`
+                  transition-all
+                  duration-500
+                  ${
+                    isActive
+                      ? "scale-100 opacity-100"
+                      : "scale-90 opacity-50"
+                  }
+                `}
+              >
+                <LongevityCard
+                  imageSrc={item.image}
+                  title={item.footNote}
+                />
+              </div>
+            )}
+          </SwiperSlide>
+        ))}
+      </Swiper>
 
       {/* Navigation */}
-      <div className="mt-5 flex items-center justify-center gap-4">
-        <button
-          onClick={scrollPrev}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 transition hover:bg-neutral-900 hover:text-white"
-        >
-          <ArrowLeft size={18} />
-        </button>
-
-        <button
-          onClick={scrollNext}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-neutral-300 transition hover:bg-neutral-900 hover:text-white"
-        >
-          <ArrowRight size={18} />
-        </button>
-      </div>
-
-      {/* Pagination */}
-      <div className="mt-5 flex justify-center gap-2">
-        {images.map((_, index) => (
+      {images.length > 1 && (
+        <div className="mt-8 flex justify-center gap-4">
           <button
-            key={index}
-            onClick={() => emblaApi?.scrollTo(index)}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              selectedSlide === index
-                ? "w-8 bg-neutral-900"
-                : "w-2 bg-neutral-300"
-            }`}
-          />
-        ))}
-      </div>
+            onClick={() => swiper?.slidePrev()}
+            className="
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              bg-[#5C5047]
+              text-white
+              transition-colors
+              hover:bg-[#4B4038]
+            "
+          >
+            <ArrowLeft size={20} strokeWidth={1.8} />
+          </button>
+
+          <button
+            onClick={() => swiper?.slideNext()}
+            className="
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              bg-[#5C5047]
+              text-white
+              transition-colors
+              hover:bg-[#4B4038]
+            "
+          >
+            <ArrowRight size={20} strokeWidth={1.8} />
+          </button>
+        </div>
+      )}
     </div>
-  );
+  )
 }

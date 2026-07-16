@@ -39,7 +39,7 @@ const WhyChooseSection = () => {
     <Section className="bg-secondary h-sreen pb-0">
       <RevealItem
         trigger="viewport"
-        className="mb-12 text-section font-light uppercase text-extra-dark"
+        className="mb-12 section-heading"
       >
         WHY NEURO VANTA
       </RevealItem>

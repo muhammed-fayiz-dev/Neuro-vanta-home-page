@@ -4,30 +4,29 @@ import IndustriesCard from "./components/IndustriesCard"
 import HospitalIcon from "@/public/icon/system spaces/HospitalIcon"
 import RevealItem from "@/components/animations/RevealItem"
 
-
 const IndustriesSection = () => {
   return (
     <Section className="bg-primary">
-      <div className="grid gap-16 lg:grid-cols-[320px_1fr] lg:items-end">
-        {/* Left */}
-        <div className="hidden md:flex justify-center lg:justify-start lg:items-end">
-         
+      <div className="flex justify-between">
+        <div className="hidden md:flex items-center">
           <HospitalIcon />
         </div>
 
-        {/* Right */}
-        <div>
+        <div className="flex flex-col justify-between gap-10">
           <RevealItem
             trigger="viewport"
-            className="mb-12 max-w-4xl text-section uppercase text-extra-dark"
+            className="mb-12 max-w-4xl section-heading"
           >
             Elevating Wellness Across Industries
           </RevealItem>
-
-          <div>
+          <div className="">
             {industriesData.map((item, index) => (
               <RevealItem trigger="scroll" key={index}>
-                <IndustriesCard key={index} title={item.title} icon={item.icon} />
+                <IndustriesCard
+                  key={index}
+                  title={item.title}
+                  icon={item.icon}
+                />
               </RevealItem>
             ))}
           </div>

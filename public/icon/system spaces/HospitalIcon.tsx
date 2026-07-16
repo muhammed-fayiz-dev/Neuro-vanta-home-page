@@ -5,8 +5,8 @@ import { motion } from "framer-motion"
 export default function HospitalIcon() {
   return (
     <motion.svg
-      width="320"
-      height="320"
+      width="364"
+      height="366"
       viewBox="0 0 32 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

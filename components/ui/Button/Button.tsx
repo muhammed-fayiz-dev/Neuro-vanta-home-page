@@ -6,8 +6,52 @@ import { useState, useRef, useEffect } from "react"
 
 interface ButtonProps extends HTMLMotionProps<"button"> {
   children: React.ReactNode
-  theme?: "light" | "dark"
+  theme?: "light" | "dark" | "primary"
 }
+const themes = {
+  light: {
+    border: "border-secondary",
+    text: "#E9D9C6",
+    activeText: "#1B1B1B",
+
+    fill: "bg-primary",
+
+    icon: "bg-secondary",
+    activeIcon: "bg-extra-dark",
+
+    chevron: "text-extra-dark",
+    activeChevron: "text-secondary",
+  },
+
+  dark: {
+    border: "border-extra-dark",
+    text: "#3F3A35",
+    activeText: "#FFFFFF",
+
+    fill: "bg-extra-dark",
+
+    icon: "bg-extra-dark",
+    activeIcon: "bg-primary",
+
+    chevron: "text-secondary",
+    activeChevron: "text-extra-dark",
+  },
+
+  primary: {
+    border: "border-primary",
+    text: "#3F3A35",
+    activeText: "#FFFFFF",
+
+    fill: "bg-primary",
+
+    icon: "bg-secondary",
+    activeIcon: "bg-extra-dark",
+
+    chevron: "text-extra-dark",
+    activeChevron: "text-secondary",
+  },
+} as const
+
 
 export default function Button({
   children,
@@ -21,13 +65,22 @@ export default function Button({
   const buttonRef = useRef<HTMLButtonElement>(null)
   const iconRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    setButtonWidth(buttonRef.current?.offsetWidth as number)
-  }, [])
+    if (!buttonRef.current || !iconRef.current) return
 
-  useEffect(() => {
-    setIconWidth(iconRef.current?.offsetWidth as number)
+    const update = () => {
+      setButtonWidth(buttonRef.current!.offsetWidth)
+      setIconWidth(iconRef.current!.offsetWidth)
+    }
+
+    update()
+
+    const observer = new ResizeObserver(update)
+    observer.observe(buttonRef.current)
+
+    return () => observer.disconnect()
   }, [])
   const travelDistance = buttonWidth - iconWidth
+  const currentTheme = themes[theme]
   return (
     <motion.button
       onHoverStart={() => setActive(true)}
@@ -50,19 +103,14 @@ export default function Button({
         border
         w-fit
 
-        ${
-          theme === "light"
-            ? "border-secondary text-secondary"
-            : "border-white text-white"
-        }
-
-        ${className}
+         ${currentTheme.border}
+    ${className}
       `}
       {...props}
     >
       {/* Background Fill */}
       <motion.div
-        className="absolute inset-y-0 left-0 rounded-full bg-primary"
+        className={`absolute inset-y-0 left-0 rounded-full ${currentTheme.fill}`}
         initial={{ width: 40 }}
         animate={{
           width: active ? "100%" : 40,
@@ -96,14 +144,14 @@ export default function Button({
             justify-center
             rounded-full
            
-            ${active ? "bg-extra-dark" : "bg-secondary"}
+        ${active ? currentTheme.activeIcon : currentTheme.icon}
           `}
           animate={{
             rotate: active ? 0 : 0,
           }}
         >
           <ChevronRight
-            className={`h-4 w-4 md:h-7 md:w-7  ${active ? " text-secondary" : "text-extra-dark"}`}
+            className={`h-4 w-4 md:h-7 md:w-7  ${active ? currentTheme.activeChevron : currentTheme.chevron} ${theme === "light" ? "border-secondary" : "border-extra-darkT"          }`}
             strokeWidth={2}
             // color="#3F3A35"
           />
@@ -127,8 +175,9 @@ export default function Button({
         "
         animate={{
           x: active ? -30 : 0,
-          color:
-            theme === "light" ? (active ? "#1B1B1B" : "#E9D9C6") : "#FFFFFF",
+          color: active
+        ? currentTheme.activeText
+        : currentTheme.text,
         }}
         transition={{
           duration: 0.45,

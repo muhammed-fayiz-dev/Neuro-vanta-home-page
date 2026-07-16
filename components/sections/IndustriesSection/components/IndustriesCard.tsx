@@ -17,16 +17,21 @@ const IndustriesCard:React.FC<Props>=({ title ,icon })=> {
         border-t
         border-border-default
         py-6
+        px-5
         transition-colors
         duration-300
       "
     >
       <div className="md:hidden">
-        <Image  src={icon} alt={icon} width={32} height={32}/>
+        <Image  src={icon} alt={icon} width={32} height={32} className=" -translate-x-2
+          transition-all
+          duration-300
+          group-hover:translate-x-0
+          group-hover:opacity-100"/>
       </div>
       <h3
         className="
-          text-lg
+          text-30
           text-extra-dark
           transition-colors
           duration-300
@@ -41,7 +46,8 @@ const IndustriesCard:React.FC<Props>=({ title ,icon })=> {
         width={28}
         height={28}
         className="
-          md:block
+          hidden
+          lg:block
           opacity-0
           -translate-x-2
           transition-all

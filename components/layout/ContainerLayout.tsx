@@ -8,7 +8,7 @@ interface Props {
 
 const Container:FC<Props>=({ children })=> {
   return (
-    <div className="mx-auto w-full max-w-[1720px] px-container">
+    <div className="container">
       {children}
     </div>
   );

@@ -8,11 +8,11 @@ const FormSection = () => {
       <div className="gap-20 ">
         {/* Left */}
         <div>
-          <RevealItem className="uppercase text-section text-extra-dark">
+          <RevealItem className="section-heading">
             Where Intelligence Meets Longevity
           </RevealItem>
 
-          <RevealItem className="mt-4 text-[clamp(3rem,5vw,7rem)] uppercase font-semibold leading-none text-extra-dark">
+          <RevealItem className="mt-4 text-[clamp(60px,7.8vw,150px)] uppercase font-semibold leading-none text-extra-dark">
             Begin Here.
           </RevealItem>
         </div>

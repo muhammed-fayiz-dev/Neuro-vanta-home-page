@@ -23,10 +23,10 @@ const MobileBanner: React.FC<MobileBannerProps> = ({
 
         <p className="text-19 text-white/80">{description}</p>
 
-        <div className="flex gap-3">
-          <Button className="flex-1">EXPLORE</Button>
+        <div className="flex gap-3 max-w-md">
+          <Button className="">EXPLORE</Button>
 
-          <Button className="flex-1">VIEW PRODUCTS</Button>
+          <Button className="">VIEW PRODUCTS</Button>
         </div>
       </div>
 

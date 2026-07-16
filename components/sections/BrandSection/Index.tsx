@@ -21,7 +21,7 @@ const BrandSection = () => {
     <Section className="bg-white">
       <div ref={ref} className="grid gap-16">
         <div className="max-w-3xl">
-          <RevealItem className="text-section uppercase text-extra-dark">
+          <RevealItem className="section-heading">
             Aligned with World-Class Brands
           </RevealItem>
         </div>

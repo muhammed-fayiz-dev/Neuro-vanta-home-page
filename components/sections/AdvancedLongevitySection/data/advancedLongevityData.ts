@@ -1,5 +1,5 @@
 export const title =
-  "Advanced Longevity. Intelligent Wellness. Designed for Life Performance."
+  "Advanced Longevity. Intelligent Wellness.Designed for Life Performance."
 export const description =
   "Neuro Vanta delivers bespoke wellness and longevity solutions that merge neuroscience, bio-technology, and spatial design. We create high-performance environments and systems that optimize human health, recovery, cognition, and longevity—at both individual and institutional scales."
 

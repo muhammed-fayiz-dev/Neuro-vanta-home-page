@@ -6,11 +6,14 @@ import RevealItem from "@/components/animations/RevealItem"
 const FooterBrand = () => {
   return (
     <Section className="pt-0">
-
-      <RevealItem
-       
-      >
-        <Image src={"/icon/logo.svg"} alt="logo" width={358} height={218} className="lg:w-[1720px] lg:h-54.5"/>
+      <RevealItem>
+        <Image
+          src="/icon/logo.svg"
+          alt="logo"
+          width={1720}
+          height={218}
+          className="h-auto w-full max-w-[1720px]"
+        />
       </RevealItem>
 
       {/* Bottom */}
@@ -26,14 +29,14 @@ const FooterBrand = () => {
         <div className="flex flex-col  items-baseline ">
           <a
             href={`mailto:${contactData.email}`}
-            className="text-60  font-light text-extra-dark"
+            className="text-60 leading[34px] md:leading-21  font-light text-extra-dark"
           >
             {contactData.email}
           </a>
 
           <a
             href={`tel:${contactData.phone}`}
-            className="mt-4 text-60  font-light text-extra-dark"
+            className="mt-4 text-60 leading[34px] md:leading-21   font-light text-extra-dark"
           >
             {contactData.phone}
           </a>

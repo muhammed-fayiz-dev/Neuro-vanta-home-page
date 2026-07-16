@@ -4,8 +4,8 @@ import { useState } from "react"
 import Section from "@/components/layout/SectionLayout"
 import LongevityCards from "./components/LongevityCards"
 import LongevitySectionHeader from "./components/LongevitySectionHeader"
-import MobileLongevityCarousel from "./components/MobileLongevityCarousel"
 import longevityCardData from "./data/longevityCardData"
+import MobileLongevitySwiper from "./components/MobileLongevityCarousel"
 
 export default function LongevityIndex() {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -23,7 +23,7 @@ export default function LongevityIndex() {
             <LongevityCards indexId={selectedIndex} />
           </div>
 
-          <MobileLongevityCarousel
+          <MobileLongevitySwiper
             images={longevityCardData[selectedIndex].imageSrc}
           />
         </div>

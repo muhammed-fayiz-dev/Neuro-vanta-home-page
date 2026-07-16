@@ -12,21 +12,21 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
   setActiveIndex,
 }) => {
   return (
-    <div className="relative z-10 hidden min-h-screen flex-col justify-between px-6 py-10 lg:flex lg:px-16 lg:py-14">
+    <div className="relative z-10 hidden min-h-screen flex-col justify-between px-4 py-15  lg:flex lg:px-16 lg:py-14">
       {/* Top Section */}
       <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
         {/* Left */}
-        <div className="flex flex-col gap-3 max-w-2xl">
+        <div className="flex flex-col gap-3 max-w-5xl">
           <RevealItemProps
             trigger="viewport"
-            className="text-section  font-light uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl"
+            className="section-heading text-white"
           >
             {title}
           </RevealItemProps>
 
           <RevealItemProps
             trigger="viewport"
-            className=" max-w-lg text-19 leading-7 text-white/80"
+            className="description-text text-white/80"
           >
             {description}
           </RevealItemProps>

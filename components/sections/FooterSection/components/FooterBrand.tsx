@@ -1,63 +1,86 @@
 import { contactData, socialMedia } from "../data/contactData"
 import Image from "next/image"
-import Section from "@/components/layout/SectionLayout"
 import RevealItem from "@/components/animations/RevealItem"
+
 
 const FooterBrand = () => {
   return (
-    <Section className="pt-0">
+    <section className="container pb-[30px] sm:pb-80 3xl:pb-[84px]">
       <RevealItem>
-        <Image
-          src="/icon/logo-mask.svg"
-          alt="logo"
-          width={1720}
-          height={218}
-          className="h-auto w-full max-w-[1720px]"
-        />
+        <div className="w-full relative h-full max-h-[218px] mt-[40px] overflow-hidden">
+          <Image
+            src="/icon/logo-mask.svg"
+            alt="logo"
+            width={2000}
+            height={300}
+            className="w-full h-full max-h-[218px] pointer-events-none"
+          />
+          <div
+            className="absolute top-0 left-0 w-1/2 h-full bg-white z-10"
+            style={{ transform: "translateX(-100%)" }}
+          />
+          <div
+            className="absolute top-0 right-0 w-1/2 h-full bg-white z-10"
+            style={{ transform: "translateX(100%)" }}
+          />
+        </div>
       </RevealItem>
 
-      {/* Bottom */}
-      <div className="mt-10 px-30px lg:mt-20 grid gap:12 md:gap-16 lg:grid-cols-[1fr_1.4fr]">
+      <div className="flex flex-wrap mt-[60px] md:mt-80 gap-y-20 3xl:mt-[136px]">
         {/* Address */}
-        <div className="space-y-1 text-19 text-extra-dark">
+        <div className="sm:w-[51%] 3xl:pt-[16px]">
           {contactData.address.map((line, index) => (
-            <p key={index}>{line}</p>
+            <RevealItem key={index}>
+              <p
+                className="text-extra-dark leading-[1.54] sm:leading-[1.42] whitespace-pre-line md:tracking-[-0.03em]"
+                key={index}
+              >
+                {line}
+              </p>
+            </RevealItem>
           ))}
         </div>
 
         {/* Contact */}
-        <div className="flex flex-col  items-baseline ">
-          <a
-            href={`mailto:${contactData.email}`}
-            className="text-60 leading[34px] md:leading-21  font-light text-extra-dark"
-          >
-            {contactData.email}
-          </a>
-
-          <a
-            href={`tel:${contactData.phone}`}
-            className="mt-4 text-60 leading[34px] md:leading-21   font-light text-extra-dark"
-          >
-            {contactData.phone}
-          </a>
+        <div className="sm:w-[49%] ">
+          <div className="text-extra-dark text-30 lg:text-60 flex flex-col mb-20 sm:mb-50">
+            <RevealItem trigger="viewport">
+              <a
+                href={`mailto:${contactData.email}`}
+                className="section-heading !lowercase leading-[1.3] sm:leading-[1.433]   font-light text-extra-dark w-fit"
+              >
+                {contactData.email}
+              </a>
+            </RevealItem>
+            <RevealItem trigger="viewport">
+              <a
+                href={`tel:${contactData.phone}`}
+                className="mt-4 section-heading  leading-[1.3] sm:leading-[1.433]    font-light text-extra-dark w-fit"
+              >
+                {contactData.phone}
+              </a>
+            </RevealItem>
+          </div>
 
           {/* Social */}
-          <div className="mt-8 flex gap-6">
-            {socialMedia.map((media) => (
-              <a href={media.href} key={media.name}>
-                <Image
-                  src={media.icon}
-                  alt={media.name}
-                  width={30}
-                  height={30}
-                  className=" w-fit h-fit  transition-opacity hover:opacity-70"
-                />
-              </a>
-            ))}
-          </div>
+          <RevealItem trigger="viewport">
+            <div className="flex flex-wrap gap-x-30 gap-y-[5px]">
+              {socialMedia.map((media) => (
+                <a href={media.href} key={media.name}>
+                  <Image
+                    src={media.icon}
+                    alt={media.name}
+                    width={30}
+                    height={30}
+                    className=" w-fit h-fit  transition-opacity hover:opacity-70"
+                  />
+                </a>
+              ))}
+            </div>
+          </RevealItem>
         </div>
       </div>
-    </Section>
+    </section>
   )
 }
 

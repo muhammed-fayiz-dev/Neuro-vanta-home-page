@@ -26,10 +26,10 @@ export default function Hero() {
     text-hero
     text-center
     uppercase
-    leading-[1.112]
+    leading-[1.142] 
     max-w-[28ch] lg:max-w-[30ch]
     mx-auto
-    tracking-[-0.05em]
+    // tracking-[-0.05em]
    
   "
         >

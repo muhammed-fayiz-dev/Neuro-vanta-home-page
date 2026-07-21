@@ -1,4 +1,4 @@
-interface IndustriesDataProps {
+export interface IndustriesDataProps {
   title: string
   icon: string
 }

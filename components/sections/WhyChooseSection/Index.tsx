@@ -7,22 +7,25 @@ import { choiceData } from "./data/choiceData"
 import { ChoiceCard } from "./components/choiceCard"
 
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Navigation, Autoplay } from "swiper/modules"
+import { Navigation } from "swiper/modules"
 import type { Swiper as SwiperType } from "swiper"
 
 import "swiper/css"
 import "swiper/css/navigation"
-import Image from "next/image"
+
+import SlideButton from "@/components/ui/Slid Button"
 
 export default function WhyChooseSection() {
   const [batchStart, setBatchStart] = useState(0)
   const [positionInBatch, setPositionInBatch] = useState(0)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [isBeginning, setIsBeginning] = useState(true)
+  const [isEnd, setIsEnd] = useState(false)
 
   const swiperRef = useRef<SwiperType | null>(null)
 
-  const prevRef = useRef<HTMLButtonElement>(null)
-  const nextRef = useRef<HTMLButtonElement>(null)
+  const prevRef = useRef<HTMLButtonElement | null>(null)
+  const nextRef = useRef<HTMLButtonElement | null>(null)
 
   useEffect(() => {
     if (hoveredIndex !== null) return
@@ -34,7 +37,6 @@ export default function WhyChooseSection() {
       const visible = Number(swiper.params.slidesPerView)
 
       setPositionInBatch((prev) => {
-        // Activate next card inside current viewport
         if (prev < visible - 1) {
           return prev + 1
         }
@@ -44,7 +46,11 @@ export default function WhyChooseSection() {
 
         swiper.slideToLoop(nextBatch)
 
-        setBatchStart(nextBatch)
+        setBatchStart((prevBatch) => {
+          const nextBatch = (prevBatch + visible) % choiceData.length
+          swiper.slideTo(nextBatch)
+          return nextBatch
+        })
 
         return 0
       })
@@ -71,7 +77,7 @@ export default function WhyChooseSection() {
         <div className="flex items-center  justify-between sm:justify-end mb-[30px] sm:mb-0">
           {/* Mobile Counter */}
 
-          <div className=" sm:hidden bg-dark  h-[22px] w-[50px] flex items-center justify-center text-[12px] text-semibold rounded-[51px]">
+          <div className="sm:hidden bg-extra-dark  h-[22px] w-[50px] flex items-center justify-center text-[12px] text-semibold rounded-[51px]">
             <span className="text-white">
               {String(activeIndex + 1).padStart(2, "0")}
             </span>
@@ -86,60 +92,18 @@ export default function WhyChooseSection() {
           {/* Navigation */}
 
           <div className="flex items-center 2xl:hidden justify-end gap-[10px] shrink-0">
-            <button
+            <SlideButton
               ref={prevRef}
-              className="
-              
-        flex items-center justify-center rounded-full shrink-0 cursor-pointer active:scale-95
-        w-[40px] h-[40px]
-        sm:w-[45px] sm:h-[45px]
-        xl:w-[50px] xl:h-[50px]
-        bg-extra-dark
-        disabled:opacity-40 disabled:cursor-not-allowed
-        transition-all duration-200
-        
-      
-            "
-            >
-              <div className="relative w-[9px] h-[18px] xl:w-[12px] xl:h-[20px] transition-transform duration-500 ">
-                <Image
-                  src="/icon/left-arrow.svg"
-                  alt="Circle arrow right"
-                  fill
-                  className="object-contain transition-transform duration-500"
-                />
-              </div>
-            </button>
-
-            <button
+              direction="prev"
+              disabled={isBeginning}
+              directionSrc={"/icon/left-arrow.svg"}
+            />
+            <SlideButton
               ref={nextRef}
-              className="
-                  flex
-            h-[40px]
-            w-[40px]
-            items-center
-            justify-center
-            rounded-full
-            bg-extra-dark
-            transition
-            active:scale-95
-
-            sm:h-[45px]
-            sm:w-[45px]
-
-            xl:h-[50px]
-            xl:w-[50px]
-            "
-            >
-              <div className="relative w-[9px] h-[18px] xl:w-[12px] xl:h-[20px] transition-transform duration-500 ">
-                <Image
-                  src="/icon/right-arrow.svg"
-                  alt="Circle arrow right"
-                  fill
-                  className="object-contain transition-transform duration-500"
-                />
-              </div>
-            </button>
+              direction="next"
+              disabled={isEnd}
+              directionSrc={"/icon/right-arrow.svg"}
+            />
           </div>
         </div>
       </div>
@@ -158,7 +122,6 @@ export default function WhyChooseSection() {
 
       <Swiper
         modules={[Navigation]}
-        loop
         speed={700}
         onSwiper={(swiper) => {
           swiperRef.current = swiper
@@ -173,10 +136,15 @@ export default function WhyChooseSection() {
 
           swiper.navigation.init()
           swiper.navigation.update()
+
+          setIsBeginning(swiper.isBeginning)
+          setIsEnd(swiper.isEnd)
         }}
         onSlideChange={(swiper) => {
           setBatchStart(swiper.realIndex)
           setPositionInBatch(0)
+          setIsBeginning(swiper.isBeginning)
+          setIsEnd(swiper.isEnd)
         }}
         breakpoints={{
           0: {

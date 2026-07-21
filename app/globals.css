@@ -19,6 +19,10 @@
   font-display: swap;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   /* ==========================================================================
      Colors
@@ -350,4 +354,22 @@ body {
   to {
     transform: translateX(calc(-50% - 5px));
   }
+}
+
+@keyframes line-expand {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-line-expand {
+  animation: line-expand 0.8s ease-out forwards;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
 }

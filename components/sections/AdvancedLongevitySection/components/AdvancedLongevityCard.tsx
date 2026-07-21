@@ -78,8 +78,8 @@ export default function AdvancedLongevityCard() {
       flex
       h-[82px]
       sm:h-auto
-      px-20
-      sm:px-60
+      hover:px-20
+      hover:sm:px-60
       py-[24px]
       sm:py-40
       transition-all

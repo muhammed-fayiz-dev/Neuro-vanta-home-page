@@ -35,7 +35,7 @@ const Banner: FC<BannerProps> = ({
 
   return (
     <section className="relative h-screen overflow-hidden bg-black">
-      {/* Background */}
+
       <AnimatePresence mode="wait">
         <motion.div
           key={features[activeIndex].image}

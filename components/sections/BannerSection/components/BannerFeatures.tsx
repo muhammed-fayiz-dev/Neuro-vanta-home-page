@@ -16,13 +16,13 @@ const BannerFeature: FC<BannerFeatureProps> = ({
   return (
     <div onClick={onClick} className="group flex flex-col">
       <span
-        className={`"text-19 mb-[14px]  ${active ? "text-white" : "text-white/80"}`}
+        className={`"text-19 leading-[1.666] sm:leading-[1.73] mb-[5px] sm:mb-[14px]   ${active ? "text-white" : "text-white/80"}`}
       >
         {id}
       </span>
 
       <h3
-        className={`"text-19 mb-[24px]  ${active ? "text-white" : "text-white/80"}`}
+        className={`"text-19 leading-[1.5263] mb-20 sm:mb-25 sm:min-h-[45px] 2xl:min-h-0  ${active ? "text-white" : "text-white/80"}`}
       >
         {title}
       </h3>

@@ -14,12 +14,13 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
   features,
   activeIndex,
   setActiveIndex,
-  // descriptionMax_w,
+  
+  descriptionMax_w=65,
 }) => {
   return (
     <div className=" h-full flex flex-col justify-between py-section ">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex flex-col gap-5 ">
+        <div className="flex flex-col gap-[15px] sm:gap-20 ">
           <RevealItemProps
             trigger="viewport"
             className="section-heading text-white max-w-[25ch]"
@@ -29,9 +30,11 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
 
           <RevealItemProps
             trigger="viewport"
-            className={`description-text text-white/80  leading-[1.52] max-w-[60ch] 2xl:max-w-[65ch]`}
+            className={` mb-[30px`}
           >
+            <p  className={`description-text text-white/80  leading-[1.52] max-w-[60ch] ${descriptionMax_w}`}>
             {description}
+            </p>
           </RevealItemProps>
         </div>
 
